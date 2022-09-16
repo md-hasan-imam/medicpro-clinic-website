@@ -1,13 +1,13 @@
 import './App.css';
 
-import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import Appointment from './pages/Appointment';
-import Reviews from './pages/Reviews';
-import ContactUs from './pages/ContactUs';
-import Login from './pages/Login';
+import Home from './pages/home/Home';
+import AboutUs from './pages/about/AboutUs';
+import Appointment from './pages/appointment/Appointment';
+import Reviews from './pages/reviews/Reviews';
+import ContactUs from './pages/contact/ContactUs';
+import Login from './pages/login/Login';
 
-import Navbar from './components/shared/Navbar'
+import Navbar from './pages/shared/Navbar'
 import {Routes, Route} from 'react-router-dom';
 
 function App() {
