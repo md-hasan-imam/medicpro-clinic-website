@@ -17,7 +17,7 @@ const ContactUs = () => {
                     </div>
                     <textarea className="textarea textarea-bordered h-32" placeholder="Your Message" ></textarea>
                     <div className="form-control mt-7">
-                        <button className="btn btn-primary w-1/2 mx-auto ">Submit</button>
+                        <button className="btn btn-primary w-1/2 mx-auto text-white ">Submit</button>
                     </div>
                 </div>
             </div>
