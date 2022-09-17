@@ -1,0 +1,6 @@
+
+.experience-list li::before{
+    content: '> ';
+    color: #FE235B;
+    font-weight: 600;
+}
