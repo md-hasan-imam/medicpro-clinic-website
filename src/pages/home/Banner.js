@@ -11,7 +11,7 @@ const Banner = () => {
                         <h3 className='text-2xl'>We specialize in Pediatric Care</h3>
                         <h1 className="mt-4 mb-5 text-5xl font-bold">A SAFE CARE FOR YOUR CHILDREN's HEALTH</h1>
                         <p className="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna Quis ipsumpsum.</p>
-                        <AppointmentButton text='Make Appointment' linkTo='/appointment'></AppointmentButton>
+                        <AppointmentButton>Make Appointment</AppointmentButton>
                     </div>
                 </div>
             </div>

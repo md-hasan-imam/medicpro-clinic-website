@@ -4,3 +4,55 @@
     color: #FE235B;
     font-weight: 600;
 }
+
+
+.treatment-item .overlay{
+    background: rgba(254, 35, 90, 0.808);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    transition: all linear .4s;
+    -webkit-transition: all linear .4s;
+    -moz-transition: all linear .4s;
+    -ms-transition: all linear .4s;
+    -o-transition: all linear .4s;
+    box-sizing: border-box;
+}
+.treatment-item:hover .overlay {
+    opacity: 1;
+    top: 0;
+    left: 0;
+    display: visible;
+}
+
+.whychoseusbg{
+    background: url(./assets/images/why\ chose\ us.jpg);
+    background-size: cover;
+    background-position: center;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+.whychoseusbg div{
+    background: rgba(17, 39, 81, 0.9);
+}
+.experience-list li{
+    margin: 10px 0;
+}
+#contact{
+    background: url(./assets/images/contactbg.png);
+    background-size: cover;
+    background-position: center;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+footer{
+    background: url(./assets/images/footer.png);
+    background-size: cover;
+    background-position: center;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
