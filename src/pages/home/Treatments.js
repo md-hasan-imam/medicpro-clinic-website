@@ -12,7 +12,7 @@ const Treatments = () => {
     const treatments = [
         {
             _id: 1,
-            name: "Prenatal/Newborn",
+            name: "Parenatal/Newborn",
             description: "Pregnant women can also access micronutrient. provide HIV testing and medications to prevent mother-to-child transmission of HIV.",
             img: serviceimg1
         },
@@ -24,25 +24,25 @@ const Treatments = () => {
         },
         {
             _id: 3,
-            name: "Prenatal/Newborn",
+            name: "Nutrition Services",
             description: "Pregnant women can also access micronutrient. provide HIV testing and medications to prevent mother-to-child transmission of HIV.",
             img: serviceimg3
         },
         {
             _id: 4,
-            name: "Prenatal/Newborn",
+            name: "Development Delay",
             description: "Pregnant women can also access micronutrient. provide HIV testing and medications to prevent mother-to-child transmission of HIV.",
             img: serviceimg4
         },
         {
             _id: 5,
-            name: "Prenatal/Newborn",
+            name: "Allergy Testing",
             description: "Pregnant women can also access micronutrient. provide HIV testing and medications to prevent mother-to-child transmission of HIV.",
             img: serviceimg5
         },
         {
             _id: 6,
-            name: "Prenatal/Newborn",
+            name: "Weight Loss",
             description: "Pregnant women can also access micronutrient. provide HIV testing and medications to prevent mother-to-child transmission of HIV.",
             img: serviceimg6
         }

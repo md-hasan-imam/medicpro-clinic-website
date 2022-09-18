@@ -9,7 +9,6 @@ import Login from './pages/login/Login';
 
 import Navbar from './pages/shared/Navbar'
 import {Routes, Route} from 'react-router-dom';
-import Footer from './pages/shared/Footer';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
         <Route path='/contactus' element={<ContactUs></ContactUs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
-      <Footer></Footer>
       
     </div>
   );
