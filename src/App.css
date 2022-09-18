@@ -1,4 +1,6 @@
-
+*{
+    scroll-behavior: smooth;
+}
 .experience-list li::before{
     content: '> ';
     color: #FE235B;
