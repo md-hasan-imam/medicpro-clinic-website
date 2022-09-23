@@ -54,14 +54,13 @@ const BookingModal = ({ name, slot, date, setOpenModal }) => {
 
                         <input type="text" name='date' disabled value={format(date, 'PP')} placeholder="Type here" className="input input-bordered input-md w-full max-w-lg focus:outline-none" />
                         <input type="text" name='slot' disabled value={slot} placeholder="Type here" className="input input-bordered input-md w-full max-w-lg focus:outline-none" />
-                        <input type="text" name='name' placeholder="Full name" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required/>
-                        <input type="tel" name='phone' placeholder="Mobile number" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required/>
-                        <input type="email" name='email' placeholder="Email" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required/>
+                        <input type="text" name='name' placeholder="Full name" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required />
+                        <input type="tel" name='phone' placeholder="Mobile number" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required />
+                        <input type="email" name='email' placeholder="Email" className="input input-bordered input-md  w-full max-w-lg focus:outline-none" required />
 
-                        <div class="modal-action">
+                        <div className="modal-action">
                             <input className=' btn btn-primary capitalize lg:w-4/5 btn-sm text-white text-xs md:text-sm font-semibold mt-4 mb-3 mx-auto' type="submit" value="Book" />
                         </div>
-
                     </form>
 
                 </div>

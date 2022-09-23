@@ -13,7 +13,7 @@ const AvailableSlots = ({selectedTreatment, date}) => {
             </div>
             <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-5 '>
                 {
-                    slots.map(slot => <Slot slot={slot} name={name} date={date}></Slot>)
+                    slots.map((slot, index) => <Slot key={index} slot={slot} name={name} date={date}></Slot>)
                 }
             </div>
             

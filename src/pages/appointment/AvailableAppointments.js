@@ -39,7 +39,7 @@ const AvailableAppointments = ({ date }) => {
             <div>
                 <div>
                     {
-                        selectedTreatment && <AvailableSlots
+                        selectedTreatment && <AvailableSlots 
                             selectedTreatment={selectedTreatment}
                             date={date}></AvailableSlots>
                     }
