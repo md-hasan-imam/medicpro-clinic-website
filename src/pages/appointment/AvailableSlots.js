@@ -1,7 +1,7 @@
 import React from 'react';
 import Slot from './Slot';
 
-const AvailableSlots = ({selectedTreatment, date}) => {
+const AvailableSlots = ({selectedTreatment, date, refetch}) => {
 
     const {name, slots}= selectedTreatment;
 
@@ -13,7 +13,7 @@ const AvailableSlots = ({selectedTreatment, date}) => {
             </div>
             <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-5 '>
                 {
-                    slots.map((slot, index) => <Slot key={index} slot={slot} name={name} date={date}></Slot>)
+                    slots.map((slot, index) => <Slot key={index} slot={slot} name={name} date={date} refetch={refetch}></Slot>)
                 }
             </div>
             

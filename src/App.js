@@ -1,4 +1,6 @@
 import './App.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from './pages/home/Home';
 import AboutUs from './pages/about/AboutUs';
@@ -7,12 +9,21 @@ import Reviews from './pages/reviews/Reviews';
 import ContactUs from './pages/contact/ContactUs';
 import Login from './pages/login/Login';
 
+
 import Navbar from './pages/shared/Navbar'
 import { Routes, Route } from 'react-router-dom';
 import SignUp from './pages/login/SignUp';
 import RequireAuth from './pages/login/RequireAuth';
 
 function App() {
+
+
+  <ToastContainer
+    position="bottom-left"
+    autoClose={3000}
+    pauseOnHover={false}
+  />
+
   return (
     <div >
       <Navbar></Navbar>
@@ -29,6 +40,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
+      <ToastContainer />
 
     </div>
   );

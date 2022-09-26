@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import loginimg from '../../assets/images/login.jpg'
 import { useForm } from "react-hook-form";
 import googleIcon from '../../assets/images/icons/icons8-google.svg'
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading';
 import { useLocation } from 'react-router-dom';
@@ -12,41 +12,45 @@ const Login = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      const navigate = useNavigate();
-      const location = useLocation();
-      let from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
 
-      if (loading || gLoading) {
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate])
+
+
+    if (loading || gLoading || sending) {
         return <Loading></Loading>;
-      }
+    }
 
-      let signInError;
-      if (error || gError) {
-        signInError = <p className='text-xs text-error mb-1 ml-1'>{error?.message || gError?.message}</p>
-        ;
-      }
+    let signInError;
+    if (error || gError) {
+        signInError = <p className='text-error ml-1 mb-1 text-2xs'>{error?.message || gError?.message}</p>
+            ;
+    }
 
-   
-    
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
     }
 
-    if(user || gUser){
-        navigate(from,{replace:true});
-    }
+
 
 
     return (
-        <section className='max-h-screen flex  justify-around items-center '>
+        <section className='max-h-screen flex  justify-around items-center'>
             <div className="card items-center card-side gap-x-10 flex-col lg:flex-row p-10">
                 <figure className='max-w-md'><img src={loginimg} alt="Movie" className='w-full' /></figure>
                 <div className="card-body p-3 lg:p-8 w-64 sm:w-full lg:w-96 shadow-xl rounded-2xl">
@@ -56,15 +60,14 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className=''>
                         <div className="form-control w-full max-w-md">
 
-
                             <input
                                 type="email"
                                 placeholder="Your email"
                                 className="input input-bordered w-full max-w-full focus:outline-none"
                                 {...register("email", {
                                     required: {
-                                        value:true,
-                                        message:"Email required"
+                                        value: true,
+                                        message: "Email required"
                                     }
                                 })}
                             />
@@ -78,21 +81,31 @@ const Login = () => {
                                 className="input input-bordered w-full max-w-full focus:outline-none"
                                 {...register("password", {
                                     required: {
-                                        value:true,
-                                        message:"Password required"
+                                        value: true,
+                                        message: "Password required"
                                     },
                                     minLength: {
-                                        value:6,
+                                        value: 6,
                                         message: 'Password must be 6 characters or longer'
                                     }
                                 })}
                             />
-                            <label className="label">
-                                {errors.password?.type==='required' && <span className='text-xs text-error'>{errors.password.message}</span>}
-                                {errors.password?.type==='minLength' && <span className='text-xs text-error'>{errors.password.message}</span>}
+                            <label className="label pb-0">
+                                {errors.password?.type === 'required' && <span className='text-2xs text-error'>{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className='text-2xs text-error'>{errors.password.message}</span>}
 
                             </label>
+                            
+                            {/* password reset handling */}
+                            <label className="label justify-end pt-0">
+                                <Link onClick={async () => {
+                                    await sendPasswordResetEmail(watch("email"));
+                                    alert('Check your email');
+                                }} className='text-2xs'>Forget Password?</Link>
+                            </label>
+
                             {signInError}
+
                             <input type="submit" className='btn btn-primary' value="Login" />
 
                             <label className="label justify-center mt-2">
@@ -103,7 +116,7 @@ const Login = () => {
                     </form>
 
                     <div className="divider mt-2 text-sm font-semibold">OR</div>
-                    <button onClick={()=>signInWithGoogle()} className="btn btn-outline capitalize">
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline capitalize">
                         <img src={googleIcon} className='w-6 mr-2 ' alt="" />
                         Continue with Google</button>
                 </div>

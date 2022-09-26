@@ -13,33 +13,36 @@ const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-      const navigate = useNavigate();
+    const navigate = useNavigate();
 
-      if (loading || gLoading || updating) {
+    if (loading || gLoading || updating ) {
         return <Loading></Loading>;
-      }
-
-      let signInError;
-      if (error || gError || updateError) {
-        signInError = <p className='text-xs text-error mb-1 ml-1'>{error?.message || gError?.message}</p>
-        ;
-      }
-
-    if(user || gUser){
-        console.log(user || gUser);
     }
-    
-    const onSubmit =async data => {
-        await createUserWithEmailAndPassword(data.email, data.password)
+
+    let signInError;
+    if (error || gError || updateError) {
+        signInError = <p className='text-xs text-error mb-1 ml-1'>{error?.message || gError?.message}</p>
+            ;
+    }
+
+    if (user || gUser) {
+        navigate('/');
+    }
+
+
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        navigate('/appointment');
+        navigate('/');
     }
 
     return (
@@ -57,7 +60,7 @@ const SignUp = () => {
                                 type="text"
                                 placeholder="Your full name"
                                 className="input input-bordered w-full max-w-full focus:outline-none"
-                                {...register("name", { 
+                                {...register("name", {
                                     required: {
                                         value: true,
                                         message: "Name is required"
@@ -65,7 +68,7 @@ const SignUp = () => {
                                 })}
                             />
                             <label className="label">
-                            {errors.name?.type === 'required' && <span className='text-xs text-error'>{errors.name.message}</span>}
+                                {errors.name?.type === 'required' && <span className='text-xs text-error'>{errors.name.message}</span>}
                             </label>
 
                             <input

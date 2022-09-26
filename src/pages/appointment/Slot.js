@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BookingModal from './BookingModal';
 
-const Slot = ({slot, name, date}) => {
+const Slot = ({slot, name, date , refetch}) => {
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -16,10 +16,9 @@ const Slot = ({slot, name, date}) => {
 
 
 {
-    openModal && <BookingModal name={name} slot={slot} setOpenModal={setOpenModal} date={date}></BookingModal>
+    openModal && <BookingModal name={name} slot={slot} refetch={refetch} setOpenModal={setOpenModal} date={date}></BookingModal>
 }
 
-                {/* <BookingModal name={name} slot={slot} date={date}></BookingModal> */}
             </div>
         </div>
     );
