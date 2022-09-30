@@ -4,7 +4,7 @@ import AppointmentButton from '../shared/AppointmentButton';
 
 const Banner = () => {
     return (
-        <section className='my-8'>
+        <section className='mb-8'>
             <div className="hero  max-w-full place-items-start items-center  py-12 lg:pt-40 lg:pb-48 px-0 sm:px-8 lg:px-20" style={{ backgroundImage: `url(${banner})` }}>
                 <div className="hero-content text-left text-neutral-content">
                     <div className="max-w-xl text-white tracking-wide">
