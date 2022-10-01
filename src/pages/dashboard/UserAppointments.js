@@ -1,19 +1,32 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const UserAppointments = () => {
 
     const [user] = useAuthState(auth);
-
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
         const url = `http://localhost:5000/appointments?patient=${user?.email}`;
         if (user) {
-            fetch(url)
-                .then(res => res.json())
+            fetch(url, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => {
+                    if (res.status === 401 || res.status === 403 ) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        Navigate('/');
+                    }
+                    return res.json()
+                })
                 .then(data => setAppointments(data));
         }
     }, [user])
@@ -35,14 +48,14 @@ const UserAppointments = () => {
                     <tbody>
                         {/* <!-- map over single row  --> */}
                         {
-                            appointments.map((appointment, index)=><tr className='hover'>
-                            <th>{index + 1}</th>
-                            <td>{appointment.treatment}</td>
-                            <td>{appointment.date}</td>
-                            <td>{appointment.slot}</td>
-                        </tr> )
+                            appointments.map((appointment, index) => <tr className='hover'>
+                                <th>{index + 1}</th>
+                                <td>{appointment.treatment}</td>
+                                <td>{appointment.date}</td>
+                                <td>{appointment.slot}</td>
+                            </tr>)
                         }
-                        
+
                     </tbody>
                 </table>
             </div>

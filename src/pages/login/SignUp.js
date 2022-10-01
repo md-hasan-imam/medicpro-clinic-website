@@ -6,21 +6,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../shared/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const SignUp = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [token]= useToken(user || gUser);
 
     const navigate = useNavigate();
 
@@ -34,19 +31,17 @@ const SignUp = () => {
             ;
     }
 
-    if (user || gUser) {
-        navigate('/');
+    if(token){
+        navigate('/appointment');
     }
-
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        navigate('/');
     }
 
     return (
-        <section className='max-h-screen flex  justify-around items-center '>
+        <section className='max-h-screen flex  justify-around items-center'>
             <div className="card items-center card-side gap-x-10 flex-col lg:flex-row p-10">
                 <figure className='max-w-md'><img src={loginimg} alt="Movie" className='w-full' /></figure>
                 <div className="card-body p-3 lg:p-8 w-64 sm:w-full lg:w-96 shadow-xl rounded-2xl">

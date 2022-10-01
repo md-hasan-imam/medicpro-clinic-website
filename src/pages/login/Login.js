@@ -7,6 +7,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading';
 import { useLocation } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
 
@@ -21,15 +22,18 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(user || gUser);
+
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
-        if (user || gUser) {
+
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, gUser, from, navigate])
+    }, [token, from, navigate])
 
 
     if (loading || gLoading || sending) {
@@ -44,10 +48,8 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
+        
     }
-
-
-
 
     return (
         <section className='max-h-screen flex  justify-around items-center'>
