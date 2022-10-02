@@ -48,7 +48,7 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
-        
+
     }
 
     return (
@@ -97,7 +97,7 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className='text-2xs text-error'>{errors.password.message}</span>}
 
                             </label>
-                            
+
                             {/* password reset handling */}
                             <label className="label justify-end pt-0">
                                 <Link onClick={async () => {

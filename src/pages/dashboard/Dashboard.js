@@ -12,7 +12,6 @@ const Dashboard = () => {
 
     const location = useLocation();
 
-
     return (
         <div className='bg-accent'>
             <div className='py-5 bg-secondary flex'>
@@ -33,8 +32,13 @@ const Dashboard = () => {
                     <div className="menu overflow-y-auto w-64  bg-white text-base-content rounded">
                         <div className='mx-auto mt-8 mb-4 p-2 '>
                             {
-                                user?.photoURL ?
-                                    <img src={user.photoURL} alt="" />
+                                user?.photoURL
+                                    ?
+                                    <div className="avatar">
+                                        <div className="w-24 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                                            <img src={user.photoURL} alt="user" />
+                                        </div>
+                                    </div>
                                     :
                                     <div className="avatar">
                                         <div className="w-24 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">

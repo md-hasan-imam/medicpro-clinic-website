@@ -48,7 +48,7 @@ const UserAppointments = () => {
                     <tbody>
                         {/* <!-- map over single row  --> */}
                         {
-                            appointments.map((appointment, index) => <tr className='hover'>
+                            appointments.map((appointment, index) => <tr className='hover' key={index}>
                                 <th>{index + 1}</th>
                                 <td>{appointment.treatment}</td>
                                 <td>{appointment.date}</td>
