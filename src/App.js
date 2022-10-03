@@ -24,8 +24,6 @@ function App() {
 
 
   <ToastContainer
-    position="bottom-left"
-    autoClose={3000}
     pauseOnHover={false}
   />
 

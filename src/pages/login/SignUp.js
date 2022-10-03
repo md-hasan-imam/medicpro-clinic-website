@@ -2,11 +2,12 @@ import React from 'react';
 import loginimg from '../../assets/images/login.jpg'
 import { useForm } from "react-hook-form";
 import googleIcon from '../../assets/images/icons/icons8-google.svg'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../shared/Loading';
 import useToken from '../../hooks/useToken';
+import { useEffect } from 'react';
 
 
 const SignUp = () => {
@@ -18,8 +19,16 @@ const SignUp = () => {
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
     const [token]= useToken(user || gUser);
-
+    
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     if (loading || gLoading || updating ) {
         return <Loading></Loading>;
@@ -29,10 +38,6 @@ const SignUp = () => {
     if (error || gError || updateError) {
         signInError = <p className='text-xs text-error mb-1 ml-1'>{error?.message || gError?.message}</p>
             ;
-    }
-
-    if(token){
-        navigate('/appointment');
     }
 
     const onSubmit = async data => {

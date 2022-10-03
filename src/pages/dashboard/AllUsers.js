@@ -23,7 +23,7 @@ const AllUsers = () => {
                                 <th></th>
                                 {/* <th className='text-lg'>Name</th> */}
                                 <th className='text-lg'>Email</th>
-                                <th className='text-lg'>Staus</th>
+                                <th className='text-lg'>User Staus</th>
                                 <th className='text-lg'>Delete User</th>
                             </tr>
                         </thead>

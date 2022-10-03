@@ -45,8 +45,7 @@ const BookingModal = ({ name, slot, date, setOpenModal, refetch }) => {
                     // refetch();
                 }
                 else {
-                    toast.error(`You already have an appointment on ${data.booking?.date} at ${data.booking?.slot}`
-                        , { position: toast.POSITION.BOTTOM_LEFT })
+                    toast.error(`You already have an appointment on ${data.booking?.date} at ${data.booking?.slot}`)
                 }
                 refetch();
                 setOpenModal(false);

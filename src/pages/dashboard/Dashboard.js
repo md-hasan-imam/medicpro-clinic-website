@@ -4,13 +4,19 @@ import { useLocation } from 'react-router-dom';
 import { Link, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import avatarImg from '../../assets/images/icons/avatar.png'
+import useAdmin from '../../hooks/useAdmin';
+import Loading from '../shared/Loading';
 
 const Dashboard = () => {
 
 
     const [user] = useAuthState(auth);
-
+    const [isAdmin, adminLoading] = useAdmin(user);
     const location = useLocation();
+
+    if(adminLoading){
+        return <Loading></Loading>
+    }
 
     return (
         <div className='bg-accent'>
@@ -54,7 +60,11 @@ const Dashboard = () => {
                             <li><Link to='/dashboard'>My Appointments</Link></li>
                             <li><Link to='/dashboard/history'>My History</Link></li>
                             <li><Link to='/dashboard/review'>My Review</Link></li>
-                            <li><Link to='/dashboard/users'>All users</Link></li>
+                            <li>
+                                {
+                                    isAdmin && <Link to='/dashboard/users'>All users</Link>
+                                }
+                            </li>
                         </ul>
                     </div>
 
