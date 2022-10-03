@@ -2,13 +2,14 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const UserAppointments = () => {
 
     const [user] = useAuthState(auth);
     const [appointments, setAppointments] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const url = `http://localhost:5000/appointments?patient=${user?.email}`;
@@ -23,7 +24,7 @@ const UserAppointments = () => {
                     if (res.status === 401 || res.status === 403 ) {
                         signOut(auth);
                         localStorage.removeItem('accessToken');
-                        Navigate('/');
+                        navigate('/');
                     }
                     return res.json()
                 })

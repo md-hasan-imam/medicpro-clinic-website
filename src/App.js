@@ -17,6 +17,8 @@ import RequireAuth from './pages/login/RequireAuth';
 import Dashboard from './pages/dashboard/Dashboard';
 import UserAppointments from './pages/dashboard/UserAppointments';
 import UsersHistory from './pages/dashboard/UsersHistory';
+import UserReview from './pages/dashboard/UserReview';
+import AllUsers from './pages/dashboard/AllUsers';
 
 function App() {
 
@@ -45,6 +47,8 @@ function App() {
         <Route path='dashboard' element={<RequireAuth><Dashboard></Dashboard> </RequireAuth> }>
           <Route index element={<UserAppointments></UserAppointments>}></Route>
           <Route path='history' element={<UsersHistory></UsersHistory>}></Route>
+          <Route path='review' element={<UserReview></UserReview>}></Route>
+          <Route path='users' element={<AllUsers></AllUsers>}></Route>
           
         </Route>
       </Routes>
