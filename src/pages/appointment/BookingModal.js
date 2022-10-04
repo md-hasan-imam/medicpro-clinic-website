@@ -30,7 +30,7 @@ const BookingModal = ({ name, slot, date, setOpenModal, refetch }) => {
         }
 
 
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://medicpro.onrender.com/appointments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
