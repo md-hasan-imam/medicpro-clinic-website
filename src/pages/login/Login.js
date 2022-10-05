@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import loginimg from '../../assets/images/login.jpg'
 import { useForm } from "react-hook-form";
 import googleIcon from '../../assets/images/icons/icons8-google.svg'
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading';
@@ -108,7 +108,7 @@ const Login = () => {
 
                             {signInError}
 
-                            <input type="submit" className='btn btn-primary' value="Login" />
+                            <input type="submit" className='btn btn-primary text-white' value="Login" />
 
                             <label className="label justify-center mt-2">
                                 <h3 className='text-xs'>New to Medicpro? <Link to='/signup' className='text-primary ml-1'>Create an account</Link> </h3>
