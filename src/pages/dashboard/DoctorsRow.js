@@ -1,15 +1,7 @@
 import React from 'react';
-import ConfirmationModal from '../shared/ConfirmationModal';
 
-const DoctorsRow = ({ doctor, index }) => {
-    const { img, name, designation, specialty, email } = doctor;
-
-    const handleDeleteDoctor = (email) => {
-
-
-
-    }
-
+const DoctorsRow = ({ doctor, index, setDeletingDoctor }) => {
+    const { img, name, designation, specialty } = doctor;
 
     return (
         <tr className='hover' key={index}>
@@ -26,9 +18,9 @@ const DoctorsRow = ({ doctor, index }) => {
             </td>
             <td>{specialty}</td>
             <td>
-                <label htmlFor="delete-doctor-modal" onClick={() => handleDeleteDoctor(email)} className="btn btn-primary text-white">Remove</label>
+                <label onClick={() => setDeletingDoctor(doctor)} for="delete-confirm-modal" class="btn btn-sm btn-primary">Delete</label>
             </td>
-        </tr>
+        </tr >
     );
 };
 
