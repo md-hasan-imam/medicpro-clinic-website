@@ -10,7 +10,7 @@ const AddDoctor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const { data: services, isLoading } = useQuery('services', () =>
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://medicpro.onrender.com/services`)
             .then(res => res.json())
     )
 
@@ -41,7 +41,7 @@ const AddDoctor = () => {
                     }
                     console.log(doctor);
                     // sending to database
-                    fetch(`http://localhost:5000/doctor`, {
+                    fetch(`https://medicpro.onrender.com/doctor`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

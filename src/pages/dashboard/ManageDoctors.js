@@ -7,7 +7,7 @@ import DoctorsRow from './DoctorsRow';
 const ManageDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState(null);
 
-    const { data: doctors, isLoading, refetch } = useQuery('doctors', () => fetch('http://localhost:5000/doctor', {
+    const { data: doctors, isLoading, refetch } = useQuery('doctors', () => fetch('https://medicpro.onrender.com/doctor', {
         method: 'GET',
         headers: {
             'content-type': 'application/json',

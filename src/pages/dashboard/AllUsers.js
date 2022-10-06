@@ -6,7 +6,7 @@ import UserRow from './UserRow';
 
 const AllUsers = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users',()=>fetch(`http://localhost:5000/users`).then(res => res.json()));
+    const { data: users, isLoading, refetch } = useQuery('users',()=>fetch(`https://medicpro.onrender.com/users`).then(res => res.json()));
 
     if (isLoading) {
         return <Loading></Loading>

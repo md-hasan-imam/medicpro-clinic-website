@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const UserRow = ({ user, index, refetch }) => {
 
     const handleMakingAdmin = () => {
-        fetch(`http://localhost:5000/user/admin/${user.email}`, {
+        fetch(`https://medicpro.onrender.com/user/admin/${user.email}`, {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -24,7 +24,7 @@ const UserRow = ({ user, index, refetch }) => {
             });
     }
     const handleDeleteUser= ()=>{
-        fetch(`http://localhost:5000/user/${user.email}`, {
+        fetch(`https://medicpro.onrender.com/user/${user.email}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

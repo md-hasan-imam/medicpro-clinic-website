@@ -13,7 +13,7 @@ const AvailableAppointments = ({ date }) => {
     const formattedDate = format(date, 'PP');
 
     const { data: services, isLoading, error, refetch } = useQuery(['available',formattedDate], () =>
-        fetch(`http://localhost:5000/available?date=${formattedDate}`)
+        fetch(`https://medicpro.onrender.com/available?date=${formattedDate}`)
             .then(res => res.json())
     )
 

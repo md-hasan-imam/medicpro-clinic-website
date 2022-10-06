@@ -12,7 +12,7 @@ const UserAppointments = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?patient=${user?.email}`;
+        const url = `https://medicpro.onrender.com/appointments?patient=${user?.email}`;
         if (user) {
             fetch(url, {
                 method: 'GET',
