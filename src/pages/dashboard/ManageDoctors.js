@@ -8,7 +8,7 @@ const ManageDoctors = () => {
     const [openModal, setOpenModal] =useState(false);
 
 
-    const {data: doctors, isLoading} = useQuery('doctors',()=> fetch('http://localhost:5000/doctor',{
+    const {data: doctors, isLoading} = useQuery('doctors',()=> fetch('https://medicpro.onrender.com/doctor',{
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
