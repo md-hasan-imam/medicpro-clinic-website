@@ -13,7 +13,7 @@ const Payment = () => {
     const params = useParams();
     const id = params.id;
 
-    const { data: appointment, isLoading } = useQuery('apppayment', () => fetch(`http://localhost:5000/appointment/${id}`, {
+    const { data: appointment, isLoading } = useQuery('apppayment', () => fetch(`https://medicpro.onrender.com/appointment/${id}`, {
         method: "GET",
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
