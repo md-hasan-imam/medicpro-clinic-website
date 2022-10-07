@@ -57,9 +57,6 @@ const Dashboard = () => {
                         <h3 className='text-center text-xs py-2'>{user?.email}</h3>
                         <div className="divider mb-0"></div>
                         <ul className='divide-y divide-slate-200'>
-                            <li><Link to='/dashboard'>My Appointments</Link></li>
-                            <li><Link to='/dashboard/history'>My History</Link></li>
-                            <li><Link to='/dashboard/review'>My Review</Link></li>
                                 {
                                     isAdmin && <>
                                     <li><Link to='/dashboard/users'>All users</Link></li>
@@ -67,6 +64,9 @@ const Dashboard = () => {
                                     <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
                                     </> 
                                 }
+                            <li><Link to='/dashboard'>My Appointments</Link></li>
+                            <li><Link to='/dashboard/history'>My History</Link></li>
+                            <li><Link to='/dashboard/review'>My Review</Link></li>
                         </ul>
                     </div>
 

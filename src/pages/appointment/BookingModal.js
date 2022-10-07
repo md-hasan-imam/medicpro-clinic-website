@@ -7,7 +7,8 @@ import Loading from '../shared/Loading';
 import { toast } from 'react-toastify';
 
 
-const BookingModal = ({ name, slot, date, setOpenModal, refetch }) => {
+const BookingModal = ({ name, slot, date, price, setOpenModal, refetch }) => {
+    console.log(price);
 
     const [user, loading] = useAuthState(auth);
     const formattedDate = format(date, 'PP')
@@ -23,6 +24,8 @@ const BookingModal = ({ name, slot, date, setOpenModal, refetch }) => {
             treatment: name,
             date: formattedDate,
             slot: slot,
+            paid:false,
+            price: price,
             patientName: user?.displayName,
             email: user?.email,
             phone: e.target.phone.value,
@@ -40,7 +43,7 @@ const BookingModal = ({ name, slot, date, setOpenModal, refetch }) => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) {
-                    toast.success(`Appointment is set on ${data.booking?.date} at ${data.booking?.slot}`, { position: toast.POSITION.BOTTOM_LEFT });
+                    toast.success(`Appointment is set on ${data.booking?.date} at ${data.booking?.slot}`);
                     // refetch();
                 }
                 else {

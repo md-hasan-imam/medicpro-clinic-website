@@ -3,7 +3,8 @@ import Slot from './Slot';
 
 const AvailableSlots = ({selectedTreatment, date, refetch}) => {
 
-    const {name, slots}= selectedTreatment;
+    const {name, slots, price}= selectedTreatment;
+    // console.log(price);
 
     return (
         <section id='slots' className='my-20 pt-10'>
@@ -13,7 +14,7 @@ const AvailableSlots = ({selectedTreatment, date, refetch}) => {
             </div>
             <div className='grid md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-5 '>
                 {
-                    slots.map((slot, index) => <Slot key={index} slot={slot} name={name} date={date} refetch={refetch}></Slot>)
+                    slots.map((slot, index) => <Slot key={index} price={price} slot={slot} name={name} date={date} refetch={refetch}></Slot>)
                 }
             </div>
             

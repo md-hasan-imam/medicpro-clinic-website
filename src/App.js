@@ -22,6 +22,7 @@ import AllUsers from './pages/dashboard/AllUsers';
 import RequireAdmin from './pages/login/RequireAdmin';
 import AddDoctor from './pages/dashboard/AddDoctor';
 import ManageDoctors from './pages/dashboard/ManageDoctors';
+import Payment from './pages/dashboard/Payment';
 
 function App() {
 
@@ -49,10 +50,10 @@ function App() {
           <Route index element={<UserAppointments></UserAppointments>}></Route>
           <Route path='history' element={<UsersHistory></UsersHistory>}></Route>
           <Route path='review' element={<UserReview></UserReview>}></Route>
+          <Route path='appointment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
           <Route path='adddoctor' element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
           <Route path='managedoctors' element={<RequireAdmin><ManageDoctors></ManageDoctors></RequireAdmin>}></Route>
-          
         </Route>
       </Routes>
       <ToastContainer />

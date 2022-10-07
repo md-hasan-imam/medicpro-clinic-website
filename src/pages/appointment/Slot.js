@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BookingModal from './BookingModal';
 
-const Slot = ({slot, name, date , refetch}) => {
+const Slot = ({slot, name, date ,price, refetch}) => {
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -14,9 +14,8 @@ const Slot = ({slot, name, date , refetch}) => {
 
                 <label htmlFor="booking-modal" onClick={()=>setOpenModal(true)} className="btn btn-primary  btn-sm text-white text-xs  font-semibold mt-5 mb-3 mx-auto">Book Appointment</label>
 
-
 {
-    openModal && <BookingModal name={name} slot={slot} refetch={refetch} setOpenModal={setOpenModal} date={date}></BookingModal>
+    openModal && <BookingModal name={name} price={price} slot={slot} refetch={refetch} setOpenModal={setOpenModal} date={date}></BookingModal>
 }
 
             </div>

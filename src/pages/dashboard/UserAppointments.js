@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
@@ -21,7 +22,7 @@ const UserAppointments = () => {
                 }
             })
                 .then(res => {
-                    if (res.status === 401 || res.status === 403 ) {
+                    if (res.status === 401 || res.status === 403) {
                         signOut(auth);
                         localStorage.removeItem('accessToken');
                         navigate('/');
@@ -43,17 +44,31 @@ const UserAppointments = () => {
                             <th className='text-lg'>Treatment</th>
                             <th className='text-lg'>Date</th>
                             <th className='text-lg'>Time</th>
-                            {/* <th>Status</th> */}
+                            <th className='text-lg'>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* <!-- map over single row  --> */}
                         {
-                            appointments.map((appointment, index) => <tr className='hover' key={index}>
+                            appointments.map((appointment, index) => <tr className='hover'
+                                key={index}>
                                 <th>{index + 1}</th>
                                 <td>{appointment.treatment}</td>
                                 <td>{appointment.date}</td>
                                 <td>{appointment.slot}</td>
+                                <td>
+                                    {
+                                        !appointment.paid ?
+                                            <Link to={`appointment/${appointment._id}`} className='btn btn-primary btn-sm px-5 text-white'>Pay</Link>
+                                            :
+                                            <>
+                                                <button className='btn btn-success btn-sm mb-4 px-5'>Paid</button>
+                                                <div className="tooltip block tooltip-left" data-tip={appointment.transactionId}>
+                                                    <button className="btn-secondary block capitalize px-5 py-1  text-white rounded text-sm ml-5">Transaction Id</button>
+                                                </div>
+                                            </>
+                                    }
+                                </td>
                             </tr>)
                         }
 
