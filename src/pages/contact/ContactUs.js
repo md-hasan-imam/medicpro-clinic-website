@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import aboutUsbgImg from '../../assets/images/aboutusclinicbg.png';
 
 const ContactUs = () => {
     return (
-        <div>
-            <h2>this is contact us </h2>
-        </div>
+        <section className='mb-8'>
+
+        </section>
     );
 };
 

@@ -20,12 +20,13 @@ const Dashboard = () => {
 
     return (
         <div className='bg-accent'>
-            <div className='py-5 bg-secondary flex'>
-                <div className='w-1/2'>
-                    <h3 className='text-xs text-white pl-5 mt-2'>home {location.pathname}</h3>
+            <div className='py-4 bg-secondary flex px-8'>
+            <div className='w-1/2'>
+                    <h3 className='text-xs text-white'>home / dashboard</h3>
+                    <h3 className='text-lg lg:text-xl text-white font-bold mt-1'>Dashboard</h3>
                 </div>
                 <div className='w-1/2 '>
-                    <h3 className='text-lg md:text-xl lg:text-3xl text-white font-bold '>Welcome to your Dashboard</h3>
+                    <h3 className='text-lg md:text-xl lg:text-3xl text-white font-bold my-1'>Welcome to your Dashboard</h3>
                 </div>
             </div>
             <div className="drawer drawer-mobile lg:p-8 gap-x-5 ">

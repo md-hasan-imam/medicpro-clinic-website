@@ -51,6 +51,14 @@
     background-position: cover;
     background-repeat: no-repeat;
 }
+.about-card:after{
+    content: '';
+    height: 60px;
+    width: 135px;
+    background: white;
+    position: absolute;
+    bottom: 0;
+}
 footer{
     background: url(./assets/images/footer.png);
     background-size: cover;
