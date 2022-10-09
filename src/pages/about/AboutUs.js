@@ -20,7 +20,7 @@ const AboutUs = () => {
                     <div className="max-w-lg tracking-wide">
                         <h3 className='text-2xl font-semibold text-secondary'> Certified Pediatric Specialists </h3>
                         <h1 className="mt-3 mb-5 text-5xl font-bold text-primary">Who We Are</h1>
-                        <p className="mb-6 text-secondary font-semibold leading-8 ">The Kids Clinic improves the quality of life of children, youth and adults with behavioural, developmental and psychiatric disorders, by providing the best solutions for each individual. We have built a multidisciplinary team who can collaborate together to identify client needs, and develop appropriate treatment plans for the best outcome.</p>
+                        <p className="mb-6 text-secondary font-semibold leading-8 ">The MedicPro Clinic improves the quality of life of children, youth and adults with behavioural, developmental and psychiatric disorders, by providing the best solutions for each individual. We have built a multidisciplinary team who can collaborate together to identify client needs, and develop appropriate treatment plans for the best outcome.</p>
                     </div>
                 </div>
             </div>

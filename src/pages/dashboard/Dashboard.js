@@ -36,8 +36,8 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side ">
                     <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-                    <div className="menu overflow-y-auto w-64  bg-white text-base-content rounded">
-                        <div className='mx-auto mt-8 mb-4 p-2 '>
+                    <div className="overflow-y-auto w-64  bg-white text-base-content rounded">
+                        <div className='mx-auto mt-8 mb-4 p-2 flex justify-center '>
                             {
                                 user?.photoURL
                                     ?
@@ -57,17 +57,17 @@ const Dashboard = () => {
                         <h3 className='text-center font-semibold'>{user?.displayName}</h3>
                         <h3 className='text-center text-xs py-2'>{user?.email}</h3>
                         <div className="divider mb-0"></div>
-                        <ul className='divide-y divide-slate-200'>
+                        <ul className='dashboard-links'>
+                            <li><Link to='/dashboard' className='hover:text-primary active:text-primary focus:text-primary px-1'>My Appointments</Link></li>
+                            <li><Link to='/dashboard/history' className='hover:text-primary active:text-primary focus:text-primary px-1'>My History</Link></li>
+                            <li><Link to='/dashboard/review' className='hover:text-primary active:text-primary focus:text-primary px-1'>My Review</Link></li>
                                 {
                                     isAdmin && <>
-                                    <li><Link to='/dashboard/users'>All users</Link></li>
-                                    <li><Link to='/dashboard/adddoctor'>Add a Doctor</Link></li>
-                                    <li><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
+                                    <li><Link to='/dashboard/users' className='hover:text-primary active:text-primary focus:text-primary px-1 '>All users</Link></li>
+                                    <li><Link to='/dashboard/adddoctor' className='hover:text-primary active:text-primary focus:text-primary px-1'>Add a Doctor</Link></li>
+                                    <li><Link to='/dashboard/managedoctors' className='hover:text-primary active:text-primary focus:text-primary px-1 '>Manage Doctors</Link></li>
                                     </> 
                                 }
-                            <li><Link to='/dashboard'>My Appointments</Link></li>
-                            <li><Link to='/dashboard/history'>My History</Link></li>
-                            <li><Link to='/dashboard/review'>My Review</Link></li>
                         </ul>
                     </div>
 
