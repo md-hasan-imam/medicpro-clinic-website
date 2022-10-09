@@ -65,36 +65,36 @@ const ContactUs = () => {
 
                 <div className='grid lg:grid-cols-3 gap-16 lg:gap-5 px-5 md:px-10 lg:px-16 lg:20 mt-24'>
                     <div className='relative'  >
-                        <div className='card rounded-xl text-center bg-white p-8 ' >
+                        <div className='card rounded-xl text-center bg-white p-5 ' >
                             <div className="min-h-[6rem] mt-12">
                                 <h2 className="font-semibold mb-3">Phone</h2>
                                 <p className='text-xl  font-semibold text-center text-secondary'>+090 98763456</p>
                             </div>
                         </div>
-                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-28 h-28 flex justify-center items-center shadow-xl rounded-full bg-primary'>
-                            <figure><img src={phone} alt="Album" className=' lg:w-14' /></figure>
+                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-24 h-24 flex justify-center items-center shadow-xl rounded-full bg-primary'>
+                            <figure><img src={phone} alt="Album" className=' lg:w-10' /></figure>
                         </div>
                     </div>
                     <div className='relative '  >
-                        <div className='card rounded-xl text-center bg-white p-8 ' >
+                        <div className='card rounded-xl text-center bg-white p-5 ' >
                             <div className="min-h-[6rem] mt-12">
                                 <h2 className="font-semibold mb-3">Email</h2>
                                 <p className='text-xl  font-semibold text-center text-secondary'>contact@example.com</p>
                             </div>
                         </div>
-                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-28 h-28 flex justify-center items-center shadow-xl rounded-full bg-[#0DE0FE]'>
-                            <figure><img src={email} alt="Album" className=' lg:w-14 text-white' /></figure>
+                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-24 h-24 flex justify-center items-center shadow-xl rounded-full bg-[#0DE0FE]'>
+                            <figure><img src={email} alt="Album" className=' lg:w-10 text-white' /></figure>
                         </div>
                     </div>
                     <div className='relative '  >
-                        <div className='card rounded-xl text-center bg-white p-8 ' >
+                        <div className='card rounded-xl text-center bg-white p-5 ' >
                             <div className="min-h-[6rem] mt-12">
                                 <h2 className="font-semibold mb-3">Location</h2>
                                 <p className='text-xl  font-semibold text-center text-secondary'>C/54 Northwest Freeway, Suite 558, Houston, USA 485</p>
                             </div>
                         </div>
-                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-28 h-28 flex justify-center items-center shadow-xl rounded-full bg-primary'>
-                            <figure><img src={marker} alt="Album" className=' lg:w-8' /></figure>
+                        <div className='absolute top-[-60px] right-0  left-0  mx-auto  w-24 h-24 flex justify-center items-center shadow-xl rounded-full bg-primary'>
+                            <figure><img src={marker} alt="Album" className=' lg:w-7' /></figure>
                         </div>
                     </div>
                 </div>

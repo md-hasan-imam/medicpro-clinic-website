@@ -1,7 +1,6 @@
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import Home from './pages/home/Home';
 import AboutUs from './pages/about/AboutUs';
 import Appointment from './pages/appointment/Appointment';
