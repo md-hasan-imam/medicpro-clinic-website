@@ -71,6 +71,7 @@
     background-position: cover;
     background-repeat: no-repeat;
 }
+
 .about-card:after{
     content: '';
     height: 60px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import aboutIconimg from '../../assets/images/bed.png';
 
-const AboutCard = ({ icon, title, details, bgColor }) => {
+const AboutCard = ({  title, details  }) => {
     return (
         <div className='relative ' style={{'boxShadow':'0px 4px 5px 5px #E5F1FB'}}  >
             <div className='card rounded text-center bg-white p-10 ' >
