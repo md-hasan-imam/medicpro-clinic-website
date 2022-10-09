@@ -15,24 +15,21 @@ import WhyChoseUs from './WhyChoseUs';
 
 const Home = () => {
 
-    
-    
+
+
     return (
         <div>
-            <div>
-                    <Banner></Banner>
-                    <Info></Info>
-                    <MakeAppointmentForm></MakeAppointmentForm>
-                    <Experience></Experience>
-                    <Treatments></Treatments>
-                    <WhyChoseUs></WhyChoseUs>
-                    <Statistics></Statistics>
-                    <Professionals></Professionals>
-                    <Testimonials></Testimonials>
-                    <ContactUs></ContactUs>
-                    <Footer></Footer>
-                </div>
-          
+            <Banner></Banner>
+            <Info></Info>
+            <MakeAppointmentForm></MakeAppointmentForm>
+            <Experience></Experience>
+            <Treatments></Treatments>
+            <WhyChoseUs></WhyChoseUs>
+            <Statistics></Statistics>
+            <Professionals></Professionals>
+            <Testimonials></Testimonials>
+            <ContactUs></ContactUs>
+            <Footer></Footer>
         </div>
 
     );
